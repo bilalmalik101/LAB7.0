@@ -35,6 +35,30 @@ int main(int argc, char **argv) {
 
   }
   int max = getMax(arr,n);
+if(max!=-1){
+  printf("array max num %d\n",max);
+}
+int maxIndex = getIndexOfMax(arr,n);
+if(maxIndex != -1){
+  printf("The max number index is %d\n" , maxIndex);
+
+}
+int threshold = 35;
+// dynamic array memory size
+int resultSize =0;
+// pointer for store dynamic array from filterarray function address
+
+int*filterArray=filterThreshold(arr,n,threshold, &resultSize);
+if(filterArray!=NULL){
+  printf("The ThresholdResult:");
+  for(int i=0;i<resultSize;i++){
+    printf("%d",filterArray[i]);
+
+  }
+  printf("\n");
+  //remove dynamic memory of array
+  free(filterArray);
+}
 
   free(arr);
 
